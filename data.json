@@ -35,11 +35,135 @@
     }
   ],
   "customers": [],
-  "leads": [],
+  "leads": [
+    {
+      "LeadId": 201,
+      "LeadCode": "LEAD-2001",
+      "LeadName": "jea",
+      "Email": "chinmayereddy13@gmail.com",
+      "Phone": "8125748863",
+      "CompanyName": "cdot",
+      "Source": "Direct",
+      "Status": "Contacted",
+      "ExpectedValue": 10000,
+      "AssignedTo": 1,
+      "CreatedDate": "2026-10-07T15:54:32.952Z"
+    }
+  ],
   "opportunities": [],
   "followups": [],
   "activities": [],
   "auditLogs": [
+    {
+      "AuditLogId": 612,
+      "UserId": 1,
+      "Action": "Create",
+      "EntityName": "Lead",
+      "RecordId": "201",
+      "OldValue": null,
+      "NewValue": "{\"LeadId\":201,\"LeadCode\":\"LEAD-2001\",\"LeadName\":\"jea\",\"Email\":\"chinmayereddy13@gmail.com\",\"Phone\":\"8125748863\",\"CompanyName\":\"cdot\",\"Source\":\"Direct\",\"Status\":\"Contacted\",\"ExpectedValue\":10000,\"AssignedTo\":1,\"CreatedDate\":\"2026-10-07T15:54:32.952Z\"}",
+      "CreatedDate": "2026-10-07T15:54:32.954Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 611,
+      "UserId": 1,
+      "Action": "Login Success",
+      "EntityName": "User",
+      "RecordId": "1",
+      "OldValue": null,
+      "NewValue": "Logged in as Admin",
+      "CreatedDate": "2026-10-07T15:53:57.118Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 610,
+      "UserId": 1,
+      "Action": "Logout",
+      "EntityName": "User",
+      "RecordId": "1",
+      "OldValue": null,
+      "NewValue": "User logged out",
+      "CreatedDate": "2026-10-07T15:51:39.012Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 609,
+      "UserId": 1,
+      "Action": "Login Success",
+      "EntityName": "User",
+      "RecordId": "1",
+      "OldValue": null,
+      "NewValue": "Logged in as Admin",
+      "CreatedDate": "2026-10-07T15:51:33.273Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 608,
+      "UserId": 1,
+      "Action": "Logout",
+      "EntityName": "User",
+      "RecordId": "1",
+      "OldValue": null,
+      "NewValue": "User logged out",
+      "CreatedDate": "2026-10-07T15:51:28.163Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 607,
+      "UserId": 1,
+      "Action": "Login Success",
+      "EntityName": "User",
+      "RecordId": "1",
+      "OldValue": null,
+      "NewValue": "Logged in as Admin",
+      "CreatedDate": "2026-10-07T15:51:20.699Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 606,
+      "UserId": 3,
+      "Action": "Logout",
+      "EntityName": "User",
+      "RecordId": "3",
+      "OldValue": null,
+      "NewValue": "User logged out",
+      "CreatedDate": "2026-10-07T15:51:18.139Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 605,
+      "UserId": 3,
+      "Action": "Login Success",
+      "EntityName": "User",
+      "RecordId": "3",
+      "OldValue": null,
+      "NewValue": "Logged in as SalesExecutive",
+      "CreatedDate": "2026-10-07T15:51:11.927Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 604,
+      "UserId": 2,
+      "Action": "Logout",
+      "EntityName": "User",
+      "RecordId": "2",
+      "OldValue": null,
+      "NewValue": "User logged out",
+      "CreatedDate": "2026-10-07T15:51:05.778Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 603,
+      "UserId": 2,
+      "Action": "Login Success",
+      "EntityName": "User",
+      "RecordId": "2",
+      "OldValue": null,
+      "NewValue": "Logged in as Manager",
+      "CreatedDate": "2026-10-07T15:50:48.173Z",
+      "IpAddress": "::1"
+    },
     {
       "AuditLogId": 602,
       "UserId": 1,
