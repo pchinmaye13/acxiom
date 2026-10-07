@@ -1,0 +1,18 @@
+{
+  "name": "acxiom-crm",
+  "version": "1.0.0",
+  "description": "AcxiomCRM Enterprise Role-Based CRM Solution",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node scratch/test_api.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

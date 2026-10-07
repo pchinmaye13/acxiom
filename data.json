@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "UserId": 1,
+      "Name": "System Administrator",
+      "Email": "admin@acxiom.com",
+      "PasswordHash": "$2b$10$G.5Wu5U/1cy7lrxxkNTnoOGsSBvSkZ0Cvga7xTudUjBMSLvvAzhJy",
+      "Role": "Admin",
+      "IsActive": true,
+      "FailedLoginCount": 0,
+      "LockoutEnd": null,
+      "CreatedDate": "2026-01-01T09:00:00.000Z"
+    },
+    {
+      "UserId": 2,
+      "Name": "Sarah Jenkins (Manager)",
+      "Email": "manager@acxiom.com",
+      "PasswordHash": "$2b$10$G.5Wu5U/1cy7lrxxkNTnoONIL.6Ys7vY.B0Q.skL2M9auZfKfeezq",
+      "Role": "Manager",
+      "IsActive": true,
+      "FailedLoginCount": 0,
+      "LockoutEnd": null,
+      "CreatedDate": "2026-01-02T09:00:00.000Z"
+    },
+    {
+      "UserId": 3,
+      "Name": "Alex Rivera (Sales Exec)",
+      "Email": "sales@acxiom.com",
+      "PasswordHash": "$2b$10$G.5Wu5U/1cy7lrxxkNTnoOIugU6KFgw62oRy08G6F8fc65IGGhCCO",
+      "Role": "SalesExecutive",
+      "IsActive": true,
+      "FailedLoginCount": 0,
+      "LockoutEnd": null,
+      "CreatedDate": "2026-01-03T09:00:00.000Z"
+    }
+  ],
+  "customers": [],
+  "leads": [],
+  "opportunities": [],
+  "followups": [],
+  "activities": [],
+  "auditLogs": [
+    {
+      "AuditLogId": 602,
+      "UserId": 1,
+      "Action": "Login Success",
+      "EntityName": "User",
+      "RecordId": "1",
+      "OldValue": null,
+      "NewValue": "Logged in as Admin",
+      "CreatedDate": "2026-10-07T15:19:12.975Z",
+      "IpAddress": "::1"
+    },
+    {
+      "AuditLogId": 601,
+      "UserId": 1,
+      "Action": "System Init",
+      "EntityName": "System",
+      "RecordId": "0",
+      "OldValue": null,
+      "NewValue": "AcxiomCRM initialized with clean database, ASP.NET Identity baseline security, and seed role accounts.",
+      "CreatedDate": "2026-01-01T09:00:00.000Z",
+      "IpAddress": "127.0.0.1"
+    }
+  ]
+}
