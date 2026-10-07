@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <!-- AUTH / LOGIN VIEW -->
+  <!-- AUTH / LOGIN + REGISTER VIEW -->
   <div id="auth-container" class="auth-wrapper">
     <div class="card auth-card shadow-lg border-0">
       <div class="card-body p-4 p-md-5">
@@ -29,10 +29,24 @@
           <p class="text-muted small">Enterprise Customer Relationship Management</p>
         </div>
 
+        <!-- Auth Tabs: Login / Sign Up -->
+        <ul class="nav nav-pills nav-fill mb-4 rounded-3 p-1" style="background:#f1f5f9;" id="auth-tabs">
+          <li class="nav-item">
+            <button class="nav-link active rounded-3 fw-semibold" id="tab-login" onclick="switchAuthTab('login')">
+              <i class="fa-solid fa-right-to-bracket me-1"></i> Sign In
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link rounded-3 fw-semibold" id="tab-register" onclick="switchAuthTab('register')">
+              <i class="fa-solid fa-user-plus me-1"></i> Register
+            </button>
+          </li>
+        </ul>
+
         <!-- Notification Alert inside Auth -->
         <div id="auth-alert" class="alert d-none" role="alert"></div>
 
-        <!-- Login Form -->
+        <!-- LOGIN FORM -->
         <form id="login-form" novalidate>
           <div class="mb-3">
             <label for="login-email" class="form-label fw-semibold">Email Address</label>
@@ -40,28 +54,64 @@
               <span class="input-group-text"><i class="fa-solid fa-envelope text-muted"></i></span>
               <input type="email" class="form-control" id="login-email" placeholder="admin@acxiom.com" required>
             </div>
-            <div class="invalid-feedback" id="login-email-err">Enter a valid email address.</div>
           </div>
-
           <div class="mb-3">
             <label for="login-password" class="form-label fw-semibold">Password</label>
             <div class="input-group">
               <span class="input-group-text"><i class="fa-solid fa-lock text-muted"></i></span>
               <input type="password" class="form-control" id="login-password" placeholder="••••••••" required>
             </div>
-            <div class="invalid-feedback" id="login-password-err">Password is required.</div>
           </div>
-
           <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold shadow-sm rounded-3">
             <i class="fa-solid fa-right-to-bracket me-2"></i>Sign In
           </button>
         </form>
 
+        <!-- REGISTER FORM -->
+        <form id="register-form" class="d-none" novalidate>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa-solid fa-user text-muted"></i></span>
+              <input type="text" class="form-control" id="reg-name" placeholder="Your full name" required>
+            </div>
+            <div class="invalid-feedback">Full name is required.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa-solid fa-envelope text-muted"></i></span>
+              <input type="email" class="form-control" id="reg-email" placeholder="you@example.com" required>
+            </div>
+            <div class="invalid-feedback">Enter a valid email address.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Password <span class="text-danger">*</span></label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fa-solid fa-lock text-muted"></i></span>
+              <input type="password" class="form-control" id="reg-password" placeholder="Min 8 chars, uppercase, digit" required>
+            </div>
+            <div class="form-text text-muted extra-small">Min 8 characters with at least 1 uppercase letter and 1 digit.</div>
+            <div class="invalid-feedback">Password must be at least 8 characters with uppercase and digit.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Role</label>
+            <select class="form-select" id="reg-role">
+              <option value="SalesExecutive">Sales Executive</option>
+              <option value="Manager">Manager</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success w-100 py-2 fw-semibold shadow-sm rounded-3">
+            <i class="fa-solid fa-user-plus me-2"></i>Create Account
+          </button>
+        </form>
+
         <hr class="my-4">
 
-        <!-- Quick Login Demo Buttons -->
-        <div class="text-center">
-          <p class="text-muted extra-small mb-2 fw-semibold text-uppercase tracking-wider">Quick Demo Login Presets</p>
+        <!-- Quick Login Demo Buttons (Login tab only) -->
+        <div class="text-center" id="quick-login-section">
+          <p class="text-muted extra-small mb-2 fw-semibold text-uppercase">Quick Demo Login Presets</p>
           <div class="d-flex justify-content-center gap-2 flex-wrap">
             <button class="btn btn-outline-danger btn-sm" onclick="quickLogin('admin@acxiom.com', 'Admin@123')">
               <i class="fa-solid fa-shield-halved me-1"></i> Admin
@@ -74,6 +124,12 @@
             </button>
           </div>
         </div>
+
+        <!-- Sign-in link for register tab -->
+        <div class="text-center d-none" id="signin-hint">
+          <p class="text-muted extra-small">Already have an account? <a href="#" onclick="switchAuthTab('login')" class="text-primary fw-semibold">Sign In</a></p>
+        </div>
+
       </div>
     </div>
   </div>

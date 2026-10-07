@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup Form Submit Listeners with Instant Client-side Validation
   setupAuthForm();
+  setupRegisterForm();
   setupCustomerForm();
   setupLeadForm();
   setupOppForm();
@@ -103,8 +104,92 @@ function debounce(func, delay) {
 }
 
 // ---------------------------------------------------------
-// AUTHENTICATION & QUICK DEMO LOGIN
+// AUTH TAB SWITCHING (Login <-> Register)
 // ---------------------------------------------------------
+function switchAuthTab(tab) {
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+  const tabLogin = document.getElementById('tab-login');
+  const tabReg = document.getElementById('tab-register');
+  const quickSection = document.getElementById('quick-login-section');
+  const signinHint = document.getElementById('signin-hint');
+  const alert = document.getElementById('auth-alert');
+
+  // Clear alerts
+  alert.classList.add('d-none');
+
+  if (tab === 'login') {
+    loginForm.classList.remove('d-none');
+    registerForm.classList.add('d-none');
+    tabLogin.classList.add('active');
+    tabReg.classList.remove('active');
+    quickSection.classList.remove('d-none');
+    signinHint.classList.add('d-none');
+  } else {
+    loginForm.classList.add('d-none');
+    registerForm.classList.remove('d-none');
+    tabLogin.classList.remove('active');
+    tabReg.classList.add('active');
+    quickSection.classList.add('d-none');
+    signinHint.classList.remove('d-none');
+  }
+}
+
+// ---------------------------------------------------------
+// AUTHENTICATION & QUICK DEMO LOGIN
+// ---------------------------------------------------------function setupRegisterForm() {
+  const form = document.getElementById('register-form');
+  const alertElem = document.getElementById('auth-alert');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    alertElem.classList.add('d-none');
+    form.classList.remove('was-validated');
+
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+    const role = document.getElementById('reg-role').value;
+
+    // Client-side validation
+    let valid = true;
+    if (!name) valid = false;
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) valid = false;
+    if (!password || password.length < 8 || !/[A-Z]/.test(password) || !/[0-9]/.test(password)) valid = false;
+
+    if (!valid) {
+      form.classList.add('was-validated');
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password, role })
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        alertElem.className = 'alert alert-danger';
+        alertElem.textContent = data.error || 'Registration failed.';
+        alertElem.classList.remove('d-none');
+      } else {
+        alertElem.className = 'alert alert-success';
+        alertElem.textContent = `Account created for ${name}! Please sign in.`;
+        alertElem.classList.remove('d-none');
+        form.reset();
+        // Auto-switch to login tab after 1.5s
+        setTimeout(() => switchAuthTab('login'), 1500);
+      }
+    } catch (err) {
+      alertElem.className = 'alert alert-danger';
+      alertElem.textContent = 'Server communication error.';
+      alertElem.classList.remove('d-none');
+    }
+  });
+}
+
 async function checkAuth() {
   try {
     const res = await fetch('/api/auth/me');
